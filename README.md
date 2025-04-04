@@ -1,1 +1,1 @@
-javascript:fetch("https://github.com/ma9c0/mcgraw-hill-hack/main.js").then(a=>a.text()).then(eval)
+javascript:fetch("https://raw.githubusercontent.com/ma9c0/mcgraw-hill-hack/main/main.js")
