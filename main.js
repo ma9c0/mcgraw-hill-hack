@@ -5,8 +5,13 @@ try{
     if (url.match('connect.router.integration.prod.mheducation.com/app/#/connect/coversheet')){
         var begin_button = document.getElementsByClassName("btn btn-primary connect-primary-btn coversheet-btn-size")
         if (begin_button){
+            begin_button[0].addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetUrl = this.getAttribute('data-target-url');
+                console.log('New URL would be: ' + targetUrl);
+              });
+
             begin_button[0].click()
-            await delay(5000);
         }
         else{
             throw('begin button not found')
