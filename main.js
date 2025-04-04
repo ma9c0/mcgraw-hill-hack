@@ -6,12 +6,14 @@ try{
         var begin_button = document.getElementsByClassName("btn btn-primary connect-primary-btn coversheet-btn-size")
         if (begin_button){
             begin_button[0].click()
+            await delay(5000);
         }
         else{
             throw('begin button not found')
         }
     }
 
+    
     url = window.location.href
     if (url.match('/learning.mheducation.com')){
         console.log('about to start questions')
