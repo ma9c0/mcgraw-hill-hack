@@ -13,13 +13,16 @@ catch{
 }
 
 try{
-    var start = document.getElementById("welcome--start_button")
+    var start = document.querySelector('[data-automation-id="welcome--start_button"]')
 
-    for (var i = 0; i < start.clientHeight; i++){
-        start[i].click()
+    if (start){
+        start.click()
+        console.log("start questions button clicked")
+    }
+    else{
+        throw('start questions button not found by automation id')
     }
 
-    console.log("start questions button clicked")
 }
 catch(err){
     console.log("start questions button failed to click")
