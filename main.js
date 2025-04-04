@@ -13,15 +13,15 @@ catch{
 }
 
 try{
-    var start = document.getElementById("welcome--start-button")
+    var start = document.getElementById("welcome--start_button")
 
     for (var i = 0; i < start.clientHeight; i++){
         start[i].click()
     }
 
-    console.log("start assignment button clicked")
+    console.log("start questions button clicked")
 }
 catch(err){
-    console.log("start assignment button failed to click")
+    console.log("start questions button failed to click")
     console.log(err)
 }
