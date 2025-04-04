@@ -12,6 +12,15 @@ catch{
     console.log('some problem with fetching url')
 }
 
-document.body.insertAdjacentHTML("beforeend", '<div id="bennettc" style="z-index:1;position:absolute;width:400px;height:200px;background:#e6fff0;bottom:0;left:0;font-size:12px;font-family:monospace;"><input id="bennettin" style="width:400px;height:30px;" autocomplete="off"><div id="bennettl" style="display:flex;flex-direction:column-reverse;color:black;overflow-y:scroll;height:170px;"></div></div>')
+try{
+    var start = document.getElementById("welcome--start-button")
 
+    for (var i = 0; i < start.clientHeight; i++){
+        start[i].click()
+    }
 
+    console.log("start assignment button clicked")
+}
+catch{
+    console.log("start assignment button failed to click")
+}
