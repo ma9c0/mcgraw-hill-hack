@@ -9,6 +9,15 @@ try{
                 e.preventDefault();
                 const targetUrl = this.getAttribute('data-target-url');
                 console.log('New URL would be: ' + targetUrl);
+                var start = document.querySelector('[data-automation-id="welcome--start_button"]')
+
+                if (start){
+                    start.click()
+                    console.log("start questions button clicked")
+                }
+                else{
+                    throw('start questions button not found by automation id')
+                }
               });
 
             begin_button[0].click()
