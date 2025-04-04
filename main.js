@@ -1,6 +1,6 @@
 console.log('hi main.js')
-
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('inside dom')
     try{
         let url = window.location.href
 
