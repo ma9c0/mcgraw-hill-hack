@@ -1,5 +1,4 @@
 console.log('hi main.js')
-document.addEventListener('DOMContentLoaded', function(){
 
     url = window.location.href
 
@@ -21,5 +20,3 @@ document.addEventListener('DOMContentLoaded', function(){
             alert('begin button not found')
         }
     }
-
-})
