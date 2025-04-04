@@ -21,6 +21,7 @@ try{
 
     console.log("start assignment button clicked")
 }
-catch{
+catch(err){
     console.log("start assignment button failed to click")
+    console.log(err)
 }
