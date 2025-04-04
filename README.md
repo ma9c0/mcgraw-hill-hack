@@ -1,1 +1,1 @@
-javascript:fetch("https://raw.githubusercontent.com/ma9c0/mcgraw-hill-hack/main/main.js")
+q:fetch("https://raw.githubusercontent.com/ma9c0/mcgraw-hill-hack/main/main.js")

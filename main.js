@@ -1,3 +1,4 @@
+console.log('hi main.js')
 try{
     let url = window.location.href
 
