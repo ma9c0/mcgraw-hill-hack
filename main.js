@@ -2,10 +2,7 @@ console.log('hi main.js')
 try{
     let url = window.location.href
 
-    if (url.match('/learning.mheducation.com')){
-        console.log('url loaded')
-    }
-    else if (url.match('connect.router.integration.prod.mheducation.com/app/#/connect/coversheet')){
+    if (url.match('connect.router.integration.prod.mheducation.com/app/#/connect/coversheet')){
         var begin_button = document.getElementsByClassName("btn btn-primary connect-primary-btn coversheet-btn-size")
         if (begin_button){
             begin_button[0].click()
@@ -14,8 +11,13 @@ try{
             throw('begin button not found')
         }
     }
+
+    url = window.location.href
+    if (url.match('/learning.mheducation.com')){
+        console.log('about to start questions')
+    }
     else{
-        console.log('wrong url')
+        throw("begin button led you to somewhere else")
     }
 
 }
