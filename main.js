@@ -1,103 +1,83 @@
 console.log('hi main.js')
+//https://learning.mheducation.com/static/awd/index.html?_t=1744233834206#/
 
-    url = window.location.href
+const startButton = document.querySelector('[data-automation-id="welcome--start_button"]');
 
-    //if in the coversheet page
-    if (url.includes('connect.router.integration.prod.mheducation.com/app/#/connect/coversheet')){
-        const beginButton = document.querySelector('.btn.btn-primary.connect-primary-btn.coversheet-btn-size');
-        if (beginButton){
-            beginButton.addEventListener('click', function(e){
-                e.preventDefault();
-                let targetUrl = "";
-                (function(history) {
-                    const originalPushState = history.pushState;
-                    history.pushState = function(state, title, newurl) {
-                    console.log('Navigating to:', newurl);
-                    targetUrl = newurl;
-                    return originalPushState.apply(history, arguments);
-                    };
-                })(window.history);
+startButton.click()
 
-                console.log("Intercepted begin button click. Target URL:", targetUrl);
+const got_it = document.querySelector("body > ngb-modal-window > div.modal-dialog.modal-fullscreen-md-down > div > awd-tips-modal > div.modal-footer > button")
 
-                setTimeout(() => {
-                    if (targetUrl) {
-                      // Create an iframe to load the learning page
-                      const iframe = document.createElement('iframe');
-                      iframe.src = targetUrl;
-                      iframe.style.width = '50%';
-                      iframe.style.height = '300px'; 
-                      document.body.appendChild(iframe);
-              
-                      // When the iframe has loaded, search for the start button and click it.
-                      iframe.addEventListener('load', function() {
-                        console.log('Learning page loaded in iframe.');
-                        const checkInterval = setInterval(function() {
-                          try {
-                            const startButton = iframe.contentWindow.document.querySelector('[data-automation-id="welcome--start_button"]');
-                            if (startButton) {
-                              console.log('Start button found inside iframe. Clicking it...');
-                              startButton.click();
-                              clearInterval(checkInterval);
-                            }
-                          } catch (e) {
-                            console.error('Error accessing iframe content:', e);
-                            clearInterval(checkInterval);
-                          }
-                        }, 500); // check every 500ms
-                      });
-                    } else {
-                      console.error("Target URL was not captured.");
-                    }
-                  }, 1000);
-            })
-            // let targetUrl = "";
-            // (function(history) {
-            //     const originalPushState = history.pushState;
-            //     history.pushState = function(state, title, newurl) {
-            //     console.log('Navigating to:', newurl);
-            //     targetUrl = newurl;
-            //     return originalPushState.apply(history, arguments);
-            //     };
-            // })(window.history);
-            
-            beginButton.click();
+got_it.click()
 
-            // Wait a moment for the targetUrl to be set
-            // setTimeout(() => {
-            //   if (targetUrl) {
-            //     // Create an iframe to load the learning page
-            //     const iframe = document.createElement('iframe');
-            //     iframe.src = targetUrl;
-            //     iframe.style.width = '50%';
-            //     iframe.style.height = '300px'; 
-            //     document.body.appendChild(iframe);
-        
-            //     // When the iframe has loaded, search for the start button and click it.
-            //     iframe.addEventListener('load', function() {
-            //       console.log('Learning page loaded in iframe.');
-            //       const checkInterval = setInterval(function() {
-            //         try {
-            //           const startButton = iframe.contentWindow.document.querySelector('[data-automation-id="welcome--start_button"]');
-            //           if (startButton) {
-            //             console.log('Start button found inside iframe. Clicking it...');
-            //             startButton.click();
-            //             clearInterval(checkInterval);
-            //           }
-            //         } catch (e) {
-            //           console.error('Error accessing iframe content:', e);
-            //           clearInterval(checkInterval);
-            //         }
-            //       }, 500); // check every 500ms
-            //     });
-            //   } else {
-            //     console.error("Target URL was not captured.");
-            //   }
-            // }, 1000);
+var question = document.querySelector("#fitb_testing_69d38532-5822-58dd-8b73-49a5d628988b > p")
+
+var text = question.textContent;
+
+// Select the input element by its id
+var blankInput = document.querySelector("#fitbTesting_7b98e57e-3ce3-4405-87dc-c29bddfdba84");
 
 
-        }
-        else{
-            alert('begin button not found')
-        }
-    }
+// TODO: fix insert answer
+if (blankInput) {
+  // Set the value
+  blankInput.value = "Your answer here";
+
+  // Create and dispatch an 'input' event
+  var inputEvent = new Event('input', { bubbles: true });
+  blankInput.dispatchEvent(inputEvent);
+
+  // Create and dispatch a 'change' event
+  var changeEvent = new Event('change', { bubbles: true });
+  blankInput.dispatchEvent(changeEvent);
+
+  // Optionally, also dispatch a 'blur' event (if needed by the app)
+  var blurEvent = new Event('blur', { bubbles: true });
+  blankInput.dispatchEvent(blurEvent);
+} else {
+  console.error("Input element not found.");
+}
+
+// works:
+var highConfButton = document.querySelector('[data-automation-id="confidence-buttons--high_confidence"]');
+if (highConfButton) {
+  // Optionally, if the button is disabled, remove the "disabled" attribute.
+  if (highConfButton.disabled) {
+    highConfButton.removeAttribute("disabled");
+  }
+  // Now, simulate a click on the high-confidence button.
+  highConfButton.click();
+} else {
+  console.error("High Confidence button not found.");
+}
+
+// multiple choice
+var question = document.getElementsByClassName('prompt')[0].textContent
+
+//get buttons, in a length of number of choices
+buttons = document.getElementsByClassName("ahe-ui-radio")
+//correct choice
+cor = buttons[3].querySelector('input')
+b = cor.getAttribute('aria-labelledby')
+var choice = document.querySelector('input[aria-labelledby="' + b + '"]');
+choice.focus()
+choice.click()
+
+if (radioButton) {
+  // Optionally focus the radio button to simulate realistic interaction
+  radioButton.focus();
+  
+  // Simulate a user click on the radio button
+  radioButton.click();
+  
+  // If your framework requires an event, dispatch a change event
+  var changeEvent = new Event('change', { bubbles: true });
+  radioButton.dispatchEvent(changeEvent);
+  
+  console.log("Radio button for 'Jung' was clicked.");
+} else {
+  console.error("Radio button input not found.");
+}
+
+//next question
+next = document.querySelector("#root-container > div.root__content.content__main > awd-main-container > div > awd-navigation-bar > div > awd-question-button-bar > div > awd-next-button > button")
+
