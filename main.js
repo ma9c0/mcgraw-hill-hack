@@ -24,7 +24,7 @@ var question = document.getElementsByClassName('prompt')[0].textContent
 //get buttons, in a length of number of choices
 buttons = document.getElementsByClassName("ahe-ui-radio")
 //correct choice
-cor = buttons[3].querySelector('input')
+cor = buttons[0].querySelector('input')
 b = cor.getAttribute('aria-labelledby')
 var choice = document.querySelector('input[aria-labelledby="' + b + '"]');
 choice.focus()
