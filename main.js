@@ -20,15 +20,26 @@ if (got_it){
 
 var question = document.getElementsByClassName('prompt')[0].textContent
 
+//fill in the blank
+header = document.getElementsByClassName('probe-header')
+if (header[0].textContent == ' Fill in the Blank Question '){
+  blank = document.getElementsByClassName('input-container span-to-div')
+  blank[0].autocorrect = 'true'
+  blank[0].getAttribute(autocorrect) = 'true'
+}
+else{
+
 //multiple choice
 //get buttons, in a length of number of choices
 buttons = document.getElementsByClassName("ahe-ui-radio")
 //correct choice
-cor = buttons[0].querySelector('input')
+cor = buttons[2].querySelector('input')
 b = cor.getAttribute('aria-labelledby')
 var choice = document.querySelector('input[aria-labelledby="' + b + '"]');
 choice.focus()
 choice.click()
+
+}
 
 //click high confidence button
 var highConfButton = document.querySelector('[data-automation-id="confidence-buttons--high_confidence"]');
