@@ -41,9 +41,18 @@ if (highConfButton) {
   console.error("High Confidence button not found.");
 }
 
-document.addEventListener('DOMContentLoaded', function(){
-  //next question
-  next = document.querySelector("#root-container > div.root__content.content__main > awd-main-container > div > awd-navigation-bar > div > awd-question-button-bar > div > awd-next-button > button")
+function clickNextQuestion() {
+  const next = document.querySelector("#root-container > div.root__content.content__main > awd-main-container > div > awd-navigation-bar > div > awd-question-button-bar > div > awd-next-button > button");
+  if (next) {
+    next.click();
+    console.log("Next question button clicked.");
+  } else {
+    console.error("Next question button not found.");
+  }
+}
 
-  next.click()
-})
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", clickNextQuestion);
+} else {
+  clickNextQuestion();
+}
