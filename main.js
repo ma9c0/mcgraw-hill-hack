@@ -7,9 +7,6 @@ if (url.includes('https://learning.mheducation.com/static/awd/index.html?_t')){
   if (startButton){
     startButton.click()
   }
-  else{
-    console.error('start button not found')
-  }
 }
 else{
   console.error("not on begin page");
@@ -44,7 +41,9 @@ if (highConfButton) {
   console.error("High Confidence button not found.");
 }
 
-//next question
-next = document.querySelector("#root-container > div.root__content.content__main > awd-main-container > div > awd-navigation-bar > div > awd-question-button-bar > div > awd-next-button > button")
+document.addEventListener('DOMContentLoaded', function(){
+  //next question
+  next = document.querySelector("#root-container > div.root__content.content__main > awd-main-container > div > awd-navigation-bar > div > awd-question-button-bar > div > awd-next-button > button")
 
-next.click()
+  next.click()
+})
